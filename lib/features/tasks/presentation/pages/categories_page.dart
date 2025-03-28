@@ -32,9 +32,19 @@ class CategoriesPage extends ConsumerWidget {
         loading: () => Center(child: CircularProgressIndicator()),
         error: (error, stack) => Center(child: Text('Ошибка: $error')),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => context.goNamed(TasksRoutes.addCategory),
-        child: Icon(Icons.add),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () => context.goNamed(TasksRoutes.addCategory),
+            child: Icon(Icons.add),
+          ),
+          SizedBox(height: 20,),
+          FloatingActionButton(
+            onPressed: () => context.goNamed(TasksRoutes.editCategory),
+            child: Icon(Icons.update),
+          ),
+        ],
       ),
     );
   }

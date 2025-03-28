@@ -17,6 +17,7 @@ class EditCategoryPage extends ConsumerStatefulWidget {
 
 class _AddCategoryPageState extends ConsumerState<EditCategoryPage> {
   TextEditingController idController = TextEditingController();
+  TextEditingController titleController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
@@ -41,11 +42,35 @@ class _AddCategoryPageState extends ConsumerState<EditCategoryPage> {
                   ),
                 ),
                 SizedBox(height: 30),
+
+                TextFormField(
+                  controller: titleController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: "Новое название",
+                  ),
+                ),
+                SizedBox(height: 30),
+
                 ElevatedButton(
                   onPressed: () {
                     if (idController.text.isNotEmpty) {
-                      categoryNotifier.deleteCategory(int.parse(idController.text));
-                      log.debug(idController.text);
+                      categoryNotifier.updateCategory(
+                        CategoryEntity(
+                          id: int.parse(idController.text),
+                          title: titleController.text,
+                        ),
+                      );
+                    }
+                  },
+                  child: Text("Обновить"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (idController.text.isNotEmpty) {
+                      categoryNotifier.deleteCategory(
+                        int.parse(idController.text),
+                      );
                     }
                   },
                   child: Text("Удалить"),
