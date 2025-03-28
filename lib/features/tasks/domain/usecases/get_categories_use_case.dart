@@ -10,3 +10,5 @@ class GetCategoriesUseCase {
     return _repository.getCategories();
   }
 }
+
+
