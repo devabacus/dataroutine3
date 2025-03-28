@@ -1,3 +1,4 @@
+import '../../presentation/pages/add_category_page.dart';
 import '../../presentation/pages/categories_page.dart';
 
 import '../../presentation/pages/tasks_page.dart';
@@ -10,6 +11,18 @@ import 'package:go_router/go_router.dart';
 
 List<RouteBase> getTasksRoutes() {
   return [
+
+    GoRoute(
+      name: TasksRoutes.addCategory,
+      path: TasksRoutes.addCategoryPath,
+      builder: (BuildContext context, state) {
+        
+      
+      return AddCategoryPage();
+    
+      }
+  ),
+  
 
     GoRoute(
       name: TasksRoutes.categories,

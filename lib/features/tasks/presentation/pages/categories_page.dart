@@ -1,6 +1,9 @@
 // в features/tasks/presentation/pages/categories_page.dart
+import 'package:dataroutine3/core/routing/routes_constants.dart';
+import 'package:dataroutine3/features/tasks/presentation/routing/tasks_routes_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mlogger/mlogger.dart';
 import '../providers/category_providers.dart';
 import '../../domain/entities/category_entity.dart';
@@ -29,12 +32,7 @@ class CategoriesPage extends ConsumerWidget {
         error: (error, stack) => Center(child: Text('Ошибка: $error')),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          log.debug("Добавление новой категрии");
-          
-          // Добавление новой категории
-          // Можно показать диалог и использовать ref.read(categoriesProvider.notifier).addCategory()
-        },
+        onPressed: () => context.goNamed(TasksRoutes.addCategory),
         child: Icon(Icons.add),
       ),
     );
