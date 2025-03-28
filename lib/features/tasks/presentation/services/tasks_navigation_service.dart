@@ -6,6 +6,11 @@ import '../routing/tasks_routes_constants.dart';
 
 class TasksNavigationService {
 
+    void navigateToEditCategory(BuildContext context) {
+      context.goNamed(TasksRoutes.editCategory);
+    }
+  
+
     void navigateToAddCategory(BuildContext context) {
       context.goNamed(TasksRoutes.addCategory);
     }

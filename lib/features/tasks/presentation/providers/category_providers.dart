@@ -1,6 +1,7 @@
 import 'package:dataroutine3/features/tasks/data/datasources/local/sources/category_local_data_source.dart';
 import 'package:dataroutine3/features/tasks/domain/repositories/category_repository.dart';
 import 'package:dataroutine3/features/tasks/domain/usecases/create_categories_use_case.dart';
+import 'package:dataroutine3/features/tasks/domain/usecases/delete_categories_use_case.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/entities/category_entity.dart';
@@ -37,6 +38,12 @@ CreateCategoryUseCase createCategoryUseCase(Ref ref) {
   return CreateCategoryUseCase(repository);
 }
 
+@riverpod
+DeleteCategoriesUseCase deleteCategoryUseCase(Ref ref) {
+  final repository = ref.read(categoryRepositoryProvider);
+  return DeleteCategoriesUseCase(repository);
+}
+
 // Провайдер состояния категорий
 @riverpod
 class Categories extends _$Categories {
@@ -44,7 +51,7 @@ class Categories extends _$Categories {
   Future<List<CategoryEntity>> build() {
     return ref.read(getCategoriesUseCaseProvider)();
   }
-  
+
   Future<void> addCategory(CategoryEntity category) async {
     state = const AsyncValue.loading();
     final useCase = ref.read(createCategoryUseCaseProvider);
@@ -55,6 +62,15 @@ class Categories extends _$Categories {
       state = AsyncValue.error(e, st);
     }
   }
-  
+
+  Future<void> deleteCategory(int id) async {
+    final userCase = ref.read(deleteCategoryUseCaseProvider);
+    try {
+      await userCase(id);
+      state = AsyncValue.data(await ref.read(getCategoriesUseCaseProvider)());
+
+    } catch (_) {}
+  }
+
   // Добавьте методы для обновления и удаления
 }

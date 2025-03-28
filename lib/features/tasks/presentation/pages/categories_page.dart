@@ -24,6 +24,7 @@ class CategoriesPage extends ConsumerWidget {
             final category = categories[index];
             return ListTile(
               title: Text(category.title),
+              trailing: Text(category.id.toString()),
               // Добавьте обработчики для редактирования и удаления
             );
           },

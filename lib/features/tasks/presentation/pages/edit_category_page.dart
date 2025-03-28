@@ -7,16 +7,16 @@ import 'package:go_router/go_router.dart';
 import 'package:mlogger/mlogger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
-class AddCategoryPage extends ConsumerStatefulWidget {
-  const AddCategoryPage({super.key});
+class EditCategoryPage extends ConsumerStatefulWidget {
+  const EditCategoryPage({super.key});
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
       _AddCategoryPageState();
 }
 
-class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
-  TextEditingController titleController = TextEditingController();
+class _AddCategoryPageState extends ConsumerState<EditCategoryPage> {
+  TextEditingController idController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
 
@@ -25,7 +25,7 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
     final categoryNotifier = ref.read(categoriesProvider.notifier);
 
     return Scaffold(
-      appBar: AppBar(title: Text("Добавление новой категории")),
+      appBar: AppBar(title: Text("Удаление категории")),
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.5,
@@ -34,37 +34,26 @@ class _AddCategoryPageState extends ConsumerState<AddCategoryPage> {
             child: Column(
               children: [
                 TextFormField(
-                  controller: titleController,
+                  controller: idController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: "Название категории",
+                    hintText: "Id категории",
                   ),
                 ),
                 SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
-                    if (titleController.text.isNotEmpty) {
-                      categoryNotifier.addCategory(
-                        CategoryEntity(id: 0, title: titleController.text),
-                      );
-                      log.debug(titleController.text);
+                    if (idController.text.isNotEmpty) {
+                      categoryNotifier.deleteCategory(int.parse(idController.text));
+                      log.debug(idController.text);
                     }
                   },
-                  child: Text("Сохранить"),
+                  child: Text("Удалить"),
                 ),
-                SizedBox(height: 30,),
                 ElevatedButton(
                   onPressed: () => context.goNamed(TasksRoutes.categories),
                   child: Text(
                     "Показать все задачи",
-                    // style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                SizedBox(height: 30,),
-                ElevatedButton(
-                  onPressed: () => context.goNamed(TasksRoutes.editCategory),
-                  child: Text(
-                    "Редактировать задачи",
                     // style: TextStyle(fontSize: 20),
                   ),
                 ),
