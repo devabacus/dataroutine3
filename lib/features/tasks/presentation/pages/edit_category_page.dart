@@ -1,5 +1,5 @@
 import 'package:dataroutine3/features/tasks/domain/entities/category.dart';
-import 'package:dataroutine3/features/tasks/presentation/providers/category_providers.dart';
+import 'package:dataroutine3/features/tasks/presentation/providers/category_state_providers.dart';
 import 'package:dataroutine3/features/tasks/presentation/routing/tasks_routes_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -66,6 +66,7 @@ class _AddCategoryPageState extends ConsumerState<EditCategoryPage> {
                   child: Text("Обновить"),
                 ),
                 ElevatedButton(
+                  
                   onPressed: () {
                     if (idController.text.isNotEmpty) {
                       categoryNotifier.deleteCategory(

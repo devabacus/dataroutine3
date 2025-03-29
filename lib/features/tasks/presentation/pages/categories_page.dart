@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mlogger/mlogger.dart';
-import '../providers/category_providers.dart';
+import '../providers/category_state_providers.dart';
 import '../../domain/entities/category.dart';
 
 class CategoriesPage extends ConsumerWidget {
@@ -36,11 +36,13 @@ class CategoriesPage extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
+            heroTag: 'uniqueTag1',
             onPressed: () => context.goNamed(TasksRoutes.addCategory),
             child: Icon(Icons.add),
           ),
           SizedBox(height: 20,),
           FloatingActionButton(
+            heroTag: 'uniqueTag2',
             onPressed: () => context.goNamed(TasksRoutes.editCategory),
             child: Icon(Icons.update),
           ),
