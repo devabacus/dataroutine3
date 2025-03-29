@@ -6,3 +6,4 @@ class CategoryTable extends Table {
   TextColumn get title => text()();
   
 }
+   
