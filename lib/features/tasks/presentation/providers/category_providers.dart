@@ -1,12 +1,12 @@
 import 'package:dataroutine3/features/tasks/data/datasources/local/sources/category_local_data_source.dart';
 import 'package:dataroutine3/features/tasks/domain/repositories/category_repository.dart';
-import 'package:dataroutine3/features/tasks/domain/usecases/category/create_categories_use_case.dart';
-import 'package:dataroutine3/features/tasks/domain/usecases/category/delete_categories_use_case.dart';
-import 'package:dataroutine3/features/tasks/domain/usecases/category/update_categories_use_case.dart';
+import 'package:dataroutine3/features/tasks/domain/usecases/category/create_category.dart';
+import 'package:dataroutine3/features/tasks/domain/usecases/category/delete_category.dart';
+import 'package:dataroutine3/features/tasks/domain/usecases/category/update_category.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/entities/category_entity.dart';
-import '../../domain/usecases/category/get_categories_use_case.dart';
+import '../../domain/usecases/category/get_categories.dart';
 import '../../data/repositories/category_repository_impl.dart';
 import '../../../../core/database/local/provider/database_provider.dart';
 
