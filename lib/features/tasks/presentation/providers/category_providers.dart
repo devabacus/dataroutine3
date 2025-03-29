@@ -1,12 +1,12 @@
 import 'package:dataroutine3/features/tasks/data/datasources/local/sources/category_local_data_source.dart';
 import 'package:dataroutine3/features/tasks/domain/repositories/category_repository.dart';
-import 'package:dataroutine3/features/tasks/domain/usecases/category/create_category.dart';
-import 'package:dataroutine3/features/tasks/domain/usecases/category/delete_category.dart';
-import 'package:dataroutine3/features/tasks/domain/usecases/category/update_category.dart';
+import 'package:dataroutine3/features/tasks/domain/usecases/category/create.dart';
+import 'package:dataroutine3/features/tasks/domain/usecases/category/delete.dart';
+import 'package:dataroutine3/features/tasks/domain/usecases/category/update.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/entities/category_entity.dart';
-import '../../domain/usecases/category/get_categories.dart';
+import '../../domain/usecases/category/get_by_id.dart';
 import '../../data/repositories/category_repository_impl.dart';
 import '../../../../core/database/local/provider/database_provider.dart';
 
@@ -28,9 +28,9 @@ CategoryRepository categoryRepository(Ref ref) {
 
 // Провайдеры Use Case-ов
 @riverpod
-GetCategoriesUseCase getCategoriesUseCase(Ref ref) {
+GetCategoryUseCase getCategoriesUseCase(Ref ref) {
   final repository = ref.read(categoryRepositoryProvider);
-  return GetCategoriesUseCase(repository);
+  return GetCategoryUseCase(repository);
 }
 
 @riverpod
@@ -40,15 +40,15 @@ CreateCategoryUseCase createCategoryUseCase(Ref ref) {
 }
 
 @riverpod
-DeleteCategoriesUseCase deleteCategoryUseCase(Ref ref) {
+DeleteCategoryUseCase deleteCategoryUseCase(Ref ref) {
   final repository = ref.read(categoryRepositoryProvider);
-  return DeleteCategoriesUseCase(repository);
+  return DeleteCategoryUseCase(repository);
 }
 
 @riverpod
-UpdateCategoriesUseCase updateCategoryUseCase(Ref ref) {
+UpdateCategoryUseCase updateCategoryUseCase(Ref ref) {
   final repository = ref.read(categoryRepositoryProvider);
-  return UpdateCategoriesUseCase(repository);
+  return UpdateCategoryUseCase(repository);
 }
 
 // Провайдер состояния категорий
