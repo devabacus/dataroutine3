@@ -1,5 +1,5 @@
-import '../repositories/category_repository.dart';
-import '../entities/category_entity.dart';
+import '../../repositories/category_repository.dart';
+import '../../entities/category_entity.dart';
 
 class CreateCategoryUseCase {
   final CategoryRepository _repository;
