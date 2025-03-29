@@ -6,7 +6,7 @@ import 'package:dataroutine3/features/tasks/domain/usecases/category/update.dart
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../domain/entities/category_entity.dart';
-import '../../domain/usecases/category/get_by_id.dart';
+import '../../domain/usecases/category/get_all.dart';
 import '../../data/repositories/category_repository_impl.dart';
 import '../../../../core/database/local/provider/database_provider.dart';
 
@@ -28,9 +28,9 @@ CategoryRepository categoryRepository(Ref ref) {
 
 // Провайдеры Use Case-ов
 @riverpod
-GetCategoryUseCase getCategoriesUseCase(Ref ref) {
+GetCategoriesUseCase getCategoriesUseCase(Ref ref) {
   final repository = ref.read(categoryRepositoryProvider);
-  return GetCategoryUseCase(repository);
+  return GetCategoriesUseCase(repository);
 }
 
 @riverpod
