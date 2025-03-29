@@ -5,7 +5,7 @@ import 'package:dataroutine3/features/tasks/domain/usecases/category/delete.dart
 import 'package:dataroutine3/features/tasks/domain/usecases/category/update.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../domain/entities/category_entity.dart';
+import '../../domain/entities/category.dart';
 import '../../domain/usecases/category/get_all.dart';
 import '../../data/repositories/category_repository_impl.dart';
 import '../../../../core/database/local/provider/database_provider.dart';

@@ -1,4 +1,4 @@
-import 'package:dataroutine3/features/tasks/domain/entities/category_entity.dart';
+import 'package:dataroutine3/features/tasks/domain/entities/category.dart';
 import 'package:dataroutine3/features/tasks/presentation/providers/category_providers.dart';
 import 'package:dataroutine3/features/tasks/presentation/routing/tasks_routes_constants.dart';
 import 'package:flutter/material.dart';

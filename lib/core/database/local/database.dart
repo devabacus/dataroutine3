@@ -35,4 +35,3 @@ MigrationStrategy get migration => MigrationStrategy(
     );
   }
 }
-

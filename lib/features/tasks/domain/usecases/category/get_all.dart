@@ -1,5 +1,5 @@
 import '../../repositories/category_repository.dart';
-import '../../entities/category_entity.dart';
+import '../../entities/category.dart';
 
 class GetCategoriesUseCase {
   final CategoryRepository _repository;

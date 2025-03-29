@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mlogger/mlogger.dart';
 import '../providers/category_providers.dart';
-import '../../domain/entities/category_entity.dart';
+import '../../domain/entities/category.dart';
 
 class CategoriesPage extends ConsumerWidget {
   const CategoriesPage({super.key});
